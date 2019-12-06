@@ -420,9 +420,9 @@ function createModelSelector() {
         // case "music-rnn":
         //   editor2.setValue(music_rnn_example);
         //   break;
-          case "NN Mouse Regression":
-            editor2.setValue(nnMouseRegression);
-            break;
+      case "NN Mouse Regression":
+        editor2.setValue(nnMouseRegression);
+        break;
       default:
         editor2.setValue("// js - select a model from the dropdown");
         break;
@@ -445,7 +445,9 @@ function createModelSelector() {
   createModelSelectOptions("binary-classification", modelSelect);
   createModelSelectOptions("lstm-txt-generator", modelSelect);
   createModelSelectOptions("echo-state-network", modelSelect);
-  createModelSelectOptions("music-rnn", modelSelect);
+  createModelSelectOptions("NN Mouse Regression", modelSelect);
+  // createModelSelectOptions("echo-state-network", modelSelect);
+	// createModelSelectOptions("music-rnn", modelSelect);
 
   container.appendChild(modelSelect);
 }

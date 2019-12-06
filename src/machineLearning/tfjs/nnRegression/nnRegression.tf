@@ -1,22 +1,20 @@
-
+//js
 trainingInput = []
 trainingOutput = []
 _____
 target = [0]
-recording=0
-____
-trainingInput
-trainingOutput[400]
-
-____
-
+recording = 0
 ______
 
-onMouseMove = (x,y) =>{if (recording) {console.log(y);
-                                       trainingInput = trainingInput.concat([x,y]);
-                                       trainingOutput = trainingOutput.concat(target)};}
+onMouseMove = (x,y) => {
+  if (recording) {
+    console.log(y);
+    trainingInput = trainingInput.concat([x,y]);
+    trainingOutput = trainingOutput.concat(target)
+  };
+}
 ______
-//js
+
 
 //create the model
 var model = tf.sequential();
@@ -30,10 +28,12 @@ ys = tf.tensor2d(trainingOutput, [trainingOutput.length / target.length, target.
 
 //train the model on the data set
 trainingRecord =0;
-model.fit(xs, ys, { epochs: 500 }).then(result => {
-                      console.log(`Model trained`);
-                      console.log(result);
-                      trainingRecord = result;});
+model.fit(xs, ys, { epochs: 500 })
+.then(result => {
+                  console.log(`Model trained`);
+                  console.log(result);
+                  trainingRecord = result;
+                });
 _____
 
 trainingRecord.history.loss

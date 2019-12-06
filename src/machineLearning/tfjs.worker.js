@@ -1,8 +1,8 @@
 "use strict";
-importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs");
+importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.2.11");
 importScripts("http://mlweb.loria.fr/lalolib.js");
 import "./magenta/magentamusic.js"; 
-
+importScripts("//www.doc.gold.ac.uk/eavi/rapidmix/RapidLib.js"); 
 
 // let a = tf.tensor([100]);
 var geval = eval; // puts eval into global scope https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval

@@ -315,6 +315,12 @@ class AudioEngine {
     }
   }
 
+  postMessage(msg) {
+    if (this.audioWorkletNode !== undefined) {
+      this.audioWorkletNode.port.postMessage(msg);
+    }
+  }
+
 }
 
 export { AudioEngine };

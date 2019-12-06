@@ -20,7 +20,7 @@ ______
 
 //create the model
 var model = tf.sequential();
-model.add(tf.layers.dense({ units: 1, inputShape: [2] }));
+model.add(tf.layers.dense({ units: target.length, inputShape: [2] }));
 model.compile({ loss: 'meanSquaredError', optimizer: 'sgd' });
 
 //set up the training data set

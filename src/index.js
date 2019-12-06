@@ -21,8 +21,9 @@ import hello_world_code_example from "./machineLearning/tfjs/hello-world/hello-w
 import two_layer_non_linear_code_example from "./machineLearning/tfjs/non-linear/two-layer-non-linear.tf";
 import binary_classification_code_example from "./machineLearning/tfjs/non-linear/binary-classification.tf";
 import echo_state_network_code_example from "./machineLearning/tfjs/echo-state/echo-state-network.tf";
-import lstm_txt_gen_code_example from "./machineLearning/tfjs/rnn/lstm-txt-gen.tf";
-import music_rnn_example from "./machineLearning/magenta/music-rnn.tf";
+// import lstm_txt_gen_code_example from "./machineLearning/tfjs/rnn/lstm-txt-gen.tf";
+// import music_rnn_example from "./machineLearning/magenta/music-rnn.tf";
+import nnMouseRegression from "./machineLearning//tfjs/nnRegression/nnRegression.tf";
 
 import {
   myo
@@ -413,12 +414,15 @@ function createModelSelector() {
       case "echo-state-network":
         editor2.setValue(echo_state_network_code_example);
         break;
-      case "lstm-txt-generator":
-        editor2.setValue(lstm_txt_gen_code_example);
-        break;
-      case "music-rnn":
-        editor2.setValue(music_rnn_example);
-        break;
+      // case "lstm-txt-generator":
+      //   editor2.setValue(lstm_txt_gen_code_example);
+      //   break;
+        // case "music-rnn":
+        //   editor2.setValue(music_rnn_example);
+        //   break;
+          case "NN Mouse Regression":
+            editor2.setValue(nnMouseRegression);
+            break;
       default:
         editor2.setValue("// js - select a model from the dropdown");
         break;
@@ -791,7 +795,7 @@ function loadTest() {
 
 window.addEventListener('mousemove', e => {
   let msg = {
-    mousemove: [e.screenX, e.screenY]
+    mousemove: [e.screenX / screen.width, e.screenY / screen.height]
   };
   machineLearningWorker.postMessage(msg);
 });

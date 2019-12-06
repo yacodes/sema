@@ -788,3 +788,10 @@ function loadTest() {
     // console.log(test[1]);
   }
 }
+
+window.addEventListener('mousemove', e => {
+  let msg = {
+    mousemove: [e.screenX, e.screenY]
+  };
+  machineLearningWorker.postMessage(msg);
+});

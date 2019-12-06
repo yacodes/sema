@@ -1,13 +1,14 @@
 "use strict";
 importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.2.11");
 importScripts("http://mlweb.loria.fr/lalolib.js");
-import "./magenta/magentamusic.js";
+// import "./magenta/magentamusic.js";
 
 
 // let a = tf.tensor([100]);
 var geval = eval; // puts eval into global scope https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
 geval("var input = (id,x) => {}");
 geval("var output = (x) => {return 0;}");
+geval("var onMouseMove = (x,y) => {return 0;}");
 geval(`
 var loadResponders = {};
 var sema = {
@@ -61,6 +62,9 @@ onmessage = (m) => {
     // console.log(loadResponders);
     loadResponders[m.data.name](val);
     delete loadResponders[m.data.name];
+  }else if ('mousemove' in m.data) {
+    // console.log(m.data['mousemove']);
+    onMouseMove(m.data['mousemove'][0], m.data['mousemove'][1]);
   }else {
 //     console.log(m.data.rq);
     if (m.data.rq=="send") {
